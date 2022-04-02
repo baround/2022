@@ -1,0 +1,48 @@
+.content{
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    @media all and (max-width: 768px) {  
+        padding: 0 20px 0 20px;
+        margin-top: 0;
+    }
+    .copy{
+        width: 100%;
+        max-width: 1010px;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        color: white;
+        position: relative; 
+        h1{
+            letter-spacing: 3.29px;
+            text-align: center;
+            position: relative;
+            @media all and (max-width: 768px) {  
+                letter-spacing: 0.34px;
+                text-align: center;
+            }
+        }
+        &__address{    
+            font-size: 14px;
+            font-weight: 300;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.64;
+            letter-spacing: 1px;
+            color: #222831;
+            padding-bottom: 10px;
+            display: flex;
+            margin-top: -25px;
+        }
+        &__row{
+            width: 100%;
+        }
+    }
+}

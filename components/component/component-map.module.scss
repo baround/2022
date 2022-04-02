@@ -1,0 +1,13 @@
+.map{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    &__mapWrap{
+        width: 100%;
+        &__map{
+            min-height: 50vh;
+        }
+    }
+}

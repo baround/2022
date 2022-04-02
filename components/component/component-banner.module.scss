@@ -1,0 +1,15 @@
+.banner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    padding: 50px 20px;
+    @media (max-width: 991px){
+        padding: 10px 20px 20px 20px;
+    }
+    &__wrapper{
+        width: 100%;
+        max-width: 728px;
+    }
+}

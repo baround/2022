@@ -1,0 +1,168 @@
+.diario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row;
+    margin-bottom: 100px;
+    padding: 0 20px;
+    @media (max-width: 991px){
+        padding: 0 20px;
+        margin-bottom: 30px;
+    }
+    &__wrap{
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+    }
+    &__row{
+        width: 100%;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        align-items: center;
+        &_header{
+            padding: 50px 0 12px 0;
+            margin-bottom: 40px;
+            border-bottom: 5px solid #1f2833;
+            @media (max-width: 991px){
+                padding: 20px 0 10px 0;
+            } 
+            a{
+                font-size: 14px;
+                font-weight: bold;
+                letter-spacing: 2.63px;
+                color: #222831;
+                text-transform: uppercase;
+                text-decoration: none;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;   
+                svg{
+                    height: 13px;
+                    width: auto;
+                    margin-top: -4px;
+                    
+                }
+                &.cta{
+                    @media (max-width: 991px){
+                        font-size: 0;
+                    } 
+                } 
+            }
+
+        }
+        h2{
+            display: flex;
+            flex-flow: row;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: normal;
+            letter-spacing: 1.09px;
+            color: #212832;
+            @media (max-width: 991px){
+                font-size: 16px;
+                letter-spacing: 0.8px;
+                line-height: 1;
+            }
+            img{
+                margin-top: -5px;
+                margin-right: 15px;
+                @media (max-width: 991px){
+                    height: 24px;
+                }
+            }
+        }
+        &_content{
+            display: flex;
+            flex-flow: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            @media (max-width: 991px){
+                flex-flow: column;
+                justify-content: center;
+            }
+        }
+    }
+    &__col{
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 48%;
+        @media (max-width: 991px){
+            width: 100%;
+        }
+        &_list{
+            overflow: hidden;
+        }
+        &_pinned{
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        &__header{
+            display: flex;
+            width: 100%;
+            flex-flow: row;
+            justify-content: space-between;
+            align-items: center;
+            h3{
+                font-size: 18px;
+                font-weight: 800;
+                line-height: 1.5;
+                letter-spacing: 3px;
+                color: #222831;
+                text-transform: uppercase;
+            }
+        }
+    }
+    &__slider{
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        width: 200%;
+        transition: all .5s;
+        &__nav{
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+            align-items: center;
+        }
+        &.onSecondPage{
+            transform: translateX(-50%);
+        }
+        &.onFirstPage{
+            transform: translateX(0%);
+        }
+        &__slide{
+            width: 50%;
+            padding-right: 20px;
+        }
+    }
+
+}
+.nav{
+    width: 15px;
+    height: auto;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all .5s;
+    &__next{
+        transform: rotate(180deg);
+    }
+    &__prev{
+        
+    }
+    &__active{
+        opacity: 1;
+    }
+    &__inactive{
+        opacity: 0.5;
+    }
+}

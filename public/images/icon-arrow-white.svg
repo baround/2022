@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="11px" viewBox="0 0 22 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Ui-def" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="0005_UI_Mobile-Portrait--320---bar-internal" transform="translate(-265.000000, -526.000000)" fill="#FFFFFF">
+            <g id="Group-4" transform="translate(-12.000000, 447.000000)">
+                <g id="Button" transform="translate(29.000000, 62.000000)">
+                    <g id="Group-3" transform="translate(259.000000, 22.500000) scale(-1, 1) translate(-259.000000, -22.500000) translate(248.000000, 17.000000)">
+                        <path d="M-5.60000001e-05,5.319972 C-5.60000001e-05,5.449612 0.078344,5.621532 0.157864,5.704972 L4.637864,10.465252 C4.847024,10.681412 5.185824,10.706332 5.429704,10.487092 C5.647544,10.290812 5.653144,9.908332 5.451544,9.695252 L1.855224,5.879972 L21.279944,5.879972 C21.589064,5.879972 21.839944,5.629372 21.839944,5.319972 C21.839944,5.010852 21.589064,4.759972 21.279944,4.759972 L1.855224,4.759972 L5.451544,0.944972 C5.653144,0.731892 5.638864,0.358652 5.429704,0.153132 C5.209064,-0.063868 4.843664,-0.044548 4.637864,0.174972 L0.157864,4.934972 C0.026264,5.064052 0.002184,5.188372 -5.60000001e-05,5.319972" id="Fill-1"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
