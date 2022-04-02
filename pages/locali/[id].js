@@ -31,9 +31,6 @@ export default function Post({ postData, allPosts, itinerari }) {
 
   return (
     <div className='baround'>
-      {console.log(postData)}
-      {console.log(allPosts)}
-      {console.log(itinerari)}
       <Head>
         <title>Baround - {postTitle} - {postData.yoast_title}</title>
       </Head>

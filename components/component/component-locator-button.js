@@ -1,7 +1,6 @@
 import {useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
 const LocatorButton = ({mapObject}) => {
-  console.log(mapObject);
   const marker = useRef(null);
   const getUserLocation = () => { 
     const blueDot = {

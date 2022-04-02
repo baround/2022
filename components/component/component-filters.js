@@ -26,7 +26,6 @@ export default function Filters({ postFilteredData, changeFiltered }) {
       price: e.target.price.value,
       tipo: checked
     }
-    console.log(data)
 
     let postFiltered = postFilteredData.filter(function (locale) {
       return locale.acf.occasione_b.indexOf(data.occasione_b) > -1 && 
@@ -36,13 +35,10 @@ export default function Filters({ postFilteredData, changeFiltered }) {
     setFiltered(postFiltered)
   }
   useEffect(() => {
-    console.log('update filters');
     changeFiltered(filtered);
   }, [filtered.length]);
   return (
     <form className={`${styles.filter}`} onSubmit={filterData}>
-      {console.log('filteredData in filter')}
-      {console.log(postFilteredData)}
       <div className={`${styles.filter__row}`}>
         <div className={`${styles.filter__row__col}`}>
           <label>Occasione</label>

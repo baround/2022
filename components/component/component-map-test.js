@@ -7,8 +7,6 @@ import PropTypes from 'prop-types';
 export default function MapTest({ content, postData, setMapObject, pageType, mapObject }) {
   const [posts, setFilteredData] = useState(postData);
   const changeFiltered = (arg) => {
-    console.log('arg in map');
-    console.log(arg);
     setFilteredData(arg);
     setMapObject(map)
   };
@@ -300,7 +298,6 @@ export default function MapTest({ content, postData, setMapObject, pageType, map
 
   return (
     <>
-    {console.log(posts)}
     <Filters mapObject={mapObject} postFilteredData={postData} changeFiltered={changeFiltered}/>
     <div id="sectionMap" className={`${styles.map__mapWrap} ${pageType}__map__mapWrap`}>
       <div className={`${styles.map__mapWrap__map} ${pageType}__map__mapWrap__map`} id="map" ref={googlemap} />

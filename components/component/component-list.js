@@ -46,8 +46,6 @@ export default function List({ data, counter }) {
           })}
         </div>
       </div>
-
-      {console.log(data)}
     </div>
   )
 } 
