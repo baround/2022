@@ -38,7 +38,7 @@ export default function List({ data, counter }) {
                     {(block.acf.fascia_di_prezzo == 'basso') ? (<span>€</span>) : null}
                   </div>
                   {/* <span className={`${styles.list__listing__content__row__text__type}`}>{block.acf.tipo.join(', ')}</span> */}
-                  <span className={`${styles.list__listing__content__row__text__type}`}>{block.acf.tipo}</span>
+                  <span className={`${styles.list__listing__content__row__text__type}`}>{(block.acf.tipo.lenght > 1) ? block.acf.tipo.join(', ') : block.acf.tipo }</span>
                   <span  className={`${styles.list__listing__content__row__text__address}`}>{block.acf.indirizzo.address}</span>
                 </div>
               </div>
