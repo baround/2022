@@ -1,5 +1,5 @@
 import { getSortedPostsData, getAllPostIds, getPostData } from '../../lib/query'
-import {useEffect, useRef, useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import Head from 'next/head'
 import Header from '../../components/header'
@@ -22,10 +22,12 @@ export default function Post({ postData, allPosts, itinerari }) {
   let postIndex = postList.findIndex(post => post.id == thisPost.id);
   postList.splice(postIndex, 1);
   let latestPosts = [...postList].slice(0, 6);
-  let nearBar =  [];
-  postData.acf.itinerari_vicini.map((itinerario, index) => {
-    nearBar.push(itinerario.ID);
-  })
+  let nearBar = [];
+  if (postData.acf.itinerari_vicini && postData.acf.itinerari_vicini.length > -1) {
+    postData.acf.itinerari_vicini.map((itinerario, index) => {
+      nearBar.push(itinerario.ID);
+    })
+  }
   let resBar = itinerari.filter(item => nearBar.includes(item.id));
   const [mapObject, setMapObject] = useState(null);
 
@@ -39,7 +41,7 @@ export default function Post({ postData, allPosts, itinerari }) {
 
       <Map setMapObject={setMapObject} postData={postData} pageType={'locale'} />
 
-      <Share color='blue'/>
+      <Share color='blue' />
       <section className='morePost morePost--locali contentText'>
         <div className='morePost__wrap'>
           <div className='morePost__wrap__row'>
@@ -62,14 +64,18 @@ export default function Post({ postData, allPosts, itinerari }) {
               },
             }}
           >
-            {latestPosts.map((block, index) => {
-              return (
+            {
+              (latestPosts.length > -1) ? (
+                latestPosts.map((block, index) => {
+                  return (
 
-                <SwiperSlide key={index}>
-                  <Article block={block} classList={'post post__card'} baseLink={`/${postType}`} pageType={postType} />
-                </SwiperSlide>
-              )
-            })}
+                    <SwiperSlide key={index}>
+                      <Article block={block} classList={'post post__card'} baseLink={`/${postType}`} pageType={postType} />
+                    </SwiperSlide>
+                  )
+                })
+              ) : null
+            }
 
           </Swiper>
         </div>
@@ -96,14 +102,19 @@ export default function Post({ postData, allPosts, itinerari }) {
               },
             }}
           >
-            {resBar.map((block, index) => {
-              return (
+            {
+              (resBar.length > -1) ? (
 
-                <SwiperSlide key={index}>
-                  <Article block={block} classList={'post post__card'} baseLink={`/itinerari`} pageType={'itinerari'} />
-                </SwiperSlide>
-              )
-            })}
+                resBar.map((block, index) => {
+                  return (
+
+                    <SwiperSlide key={index}>
+                      <Article block={block} classList={'post post__card'} baseLink={`/itinerari`} pageType={'itinerari'} />
+                    </SwiperSlide>
+                  )
+                })
+              ) : null
+            }
 
           </Swiper>
         </div>

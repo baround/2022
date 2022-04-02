@@ -52,14 +52,18 @@ export default function Post({ postData, allPosts }) {
               },
             }}
           >
-            {latestPosts.map((block, index) => {
-              return (
-
-                <SwiperSlide key={index}>
-                  <Article block={block} classList={'post post__card'} baseLink={`/${postType}`} pageType={postType} />
-                </SwiperSlide>
-              )
-            })}
+            {
+              (latestPosts.length > -1) ? (
+                latestPosts.map((block, index) => {
+                  return (
+    
+                    <SwiperSlide key={index}>
+                      <Article block={block} classList={'post post__card'} baseLink={`/${postType}`} pageType={postType} />
+                    </SwiperSlide>
+                  )
+                })
+              ) : null
+            }
 
           </Swiper>
         </div>

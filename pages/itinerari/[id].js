@@ -22,9 +22,12 @@ export default function Post({ postData, allPosts, locali }) {
   let latestPosts = [...postList].slice(0, 6);
 
   let nearBar =  [];
-  postData.acf.locali_vicini.map((locale, index) => {
-    nearBar.push(locale.ID);
-  })
+  if(  postData.acf.locali_vicini &&   postData.acf.locali_vicini.length > -1){
+
+    postData.acf.locali_vicini.map((locale, index) => {
+      nearBar.push(locale.ID);
+    })
+  }
   let resBar = locali.filter(item => nearBar.includes(item.id));
   return (
     <div className='baround'>
@@ -55,15 +58,19 @@ export default function Post({ postData, allPosts, locali }) {
                 slidesPerView: 4,
               },
             }}
-          >
-            {resBar.map((block, index) => {
-              return (
+          >{
+            (resBar.length > -1) ? (
 
-                <SwiperSlide key={index}>
-                  <Article block={block} classList={'post post__card'} baseLink={`/locali`} pageType={'locali'} />
-                </SwiperSlide>
-              )
-            })}
+              resBar.map((block, index) => {
+                return (
+  
+                  <SwiperSlide key={index}>
+                    <Article block={block} classList={'post post__card'} baseLink={`/locali`} pageType={'locali'} />
+                  </SwiperSlide>
+                )
+              })
+            ) : null
+          }
 
           </Swiper>
         </div>
@@ -90,14 +97,16 @@ export default function Post({ postData, allPosts, locali }) {
               },
             }}
           >
-            {latestPosts.map((block, index) => {
-              return (
+            {(latestPosts.length > -1) ? (
+              latestPosts.map((block, index) => {
+                return (
 
-                <SwiperSlide key={index}>
-                  <Article block={block} classList={'post post__card'} baseLink={`/${postType}`} pageType={postType} />
-                </SwiperSlide>
-              )
-            })}
+                  <SwiperSlide key={index}>
+                    <Article block={block} classList={'post post__card'} baseLink={`/${postType}`} pageType={postType} />
+                  </SwiperSlide>
+                )
+              })
+            ) : null}
 
           </Swiper>
         </div>
