@@ -8,6 +8,7 @@ import Article from '../../components/homepage/article'
 import Share from '../../components/component/component-share'
 import Map from '../../components/component/component-map'
 import Footer from '../../components/footer'
+import Meta from '../../components/component/component-meta'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
@@ -34,7 +35,8 @@ export default function Post({ postData, allPosts, itinerari }) {
   return (
     <div className='baround'>
       <Head>
-        <title>Baround - {postTitle} - {postData.yoast_title}</title>
+        <title>Baround {postTitle ? `- ${postTitle}` : ''} {postData.yoast_head_json.title ? ` - ${postData.yoast_head_json.title}` : ''}</title>
+        <Meta data={postData} postTitle={postTitle}/>
       </Head>
       <Header />
       <Page pageData={postData} pageType={postType} />

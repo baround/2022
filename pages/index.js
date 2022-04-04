@@ -6,16 +6,14 @@ import Locali from '../components/homepage/locali'
 import Itinerari from '../components/homepage/itinerari'
 import Footer from '../components/footer'
 import { getSortedPostsData } from '../lib/query'
+import Meta from '../components/component/component-meta'
 
 export default function Home({home, locali, itinerari, posts, bestPost}) {
   return (
     <div className='baround'>
       <Head>
         <title>Baround</title>
-        {/* <script
-            src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyDipxxdu6s5Te5oRe0Ll9szmqxfdFLN6jA&callback=initMap&libraries=&v=weekly`}
-            async
-          ></script> */}
+        <Meta data={''} postTitle=''/>
       </Head>
       <Header />
       <>

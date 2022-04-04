@@ -5,6 +5,8 @@ import Article from '../../components/homepage/article'
 import Footer from '../../components/footer'
 import { getSortedPostsData } from '../../lib/query'
 import styles from '../fullpage.module.scss'
+import Meta from '../../components/component/component-meta'
+
 const categoryType = 'posts';
 const categorySlug = 'diario'; 
 const postTitle = 'Diario';
@@ -15,7 +17,8 @@ export default function Post({ page, posts }) {
   return (
     <div className='baround'>
       <Head>
-        <title>Baround - {postTitle}</title>
+        <title>Baround {page.title.rendered ? ` - ${page.title.rendered}` : ''}</title>
+        <Meta data={page} postTitle={postTitle}/>
       </Head>
       <Header />
       <Page pageData={page} pageType={categorySlug} />

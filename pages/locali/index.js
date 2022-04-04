@@ -8,6 +8,8 @@ import List from '../../components/component/component-list';
 import Filters from '../../components/component/component-filters';
 import styles from '../locali.module.scss'
 import MapTest from '../../components/component/component-map-test';
+import Meta from '../../components/component/component-meta'
+
 const categoryType = 'locali';
 const categorySlug = 'locali';
 const postTitle = 'Locali';
@@ -16,7 +18,8 @@ export default function Post({ posts }) {
   return (
     <div className='baround'>
       <Head>
-        <title>Baround - {postTitle}</title>
+        <title>Baround - Locali</title>
+        <Meta data={''} postTitle={postTitle}/>
       </Head>
       <Header />
       <div className={styles.locali}>
