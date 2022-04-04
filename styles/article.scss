@@ -90,6 +90,9 @@
         color: #222831;
         --lh: 1.5em;
         line-height: var(--lh);
+        strong{
+          font-weight: normal;
+        }
       }
     }
   }

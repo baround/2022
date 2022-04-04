@@ -34,7 +34,6 @@ export default function Page({ pageData, pageType }) {
               return (
                 <>
                   <Intro key={index} coverImage={coverImage} data={block} title={pageData.title.rendered} />
-                  <Map setMapObject={setMapObject} postData={pageData} pageType={pageType} />
                 </>
               )
             }

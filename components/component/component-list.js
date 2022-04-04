@@ -7,6 +7,11 @@ export default function List({ data, counter }) {
   function toggle(){
     setShowMe(!showMe);
   }
+  data.sort(function(a, b){
+      if(a.slug < b.slug) { return -1; }
+      if(a.slug > b.slug) { return 1; }
+      return 0;
+  })
   return (
     <div className={`${styles.list}`}>
       <span className={`${styles.list__showList} ${showMe?styles.inactive:styles.active}`} onClick={toggle}></span>

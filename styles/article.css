@@ -113,6 +113,10 @@
   line-height: var(--lh);
 }
 
+.post__content__text p strong {
+  font-weight: normal;
+}
+
 .post__pinned {
   display: flex;
   flex-flow: column;

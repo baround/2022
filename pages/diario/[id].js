@@ -58,7 +58,7 @@ export default function Post({ postData, allPosts }) {
                   return (
     
                     <SwiperSlide key={index}>
-                      <Article block={block} classList={'post post__card'} baseLink={`/${postType}`} pageType={postType} />
+                      <Article block={block} classList={'post post__card'} baseLink={`/diario`} pageType='diario' />
                     </SwiperSlide>
                   )
                 })
