@@ -1,6 +1,5 @@
 export default function Meta({ data, postTitle }) {
   let domain = 'https://www.baround.it/';
-  console.log(data)
   return (
     <>
     <meta name="description" content={`${(data && data.yoast_head_json.description) ? data.yoast_head_json.description : 'La guida definitiva ai cocktail bar.'}`} />

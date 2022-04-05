@@ -17,7 +17,6 @@ export default function Post({ page, posts }) {
   return (
     <div className='baround'>
       <Head>
-        {console.log(page)}
         <title>Baround {page.title.rendered ? ` - ${page.title.rendered}` : ''}</title>
         <Meta data={page} postTitle={postTitle}/>
       </Head>
