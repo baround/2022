@@ -13,7 +13,6 @@ export default function List({ data, counter }) {
       return 0;
   })
   let number = data.length - 1;
-  // console.log(data.length)
   return (
     <div className={`${styles.list}`}>
       <span className={`${styles.list__showList} ${showMe?styles.inactive:styles.active}`} onClick={toggle}></span>
