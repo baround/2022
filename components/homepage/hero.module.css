@@ -14,11 +14,13 @@
 .hero .background {
   width: 100%;
   height: 60vh;
+  min-height: 420px;
 }
 
 @media (max-width: 991px) {
   .hero .background {
     height: 30vh;
+    min-height: 250px;
   }
 }
 
@@ -38,7 +40,8 @@
 }
 
 .hero .copy p {
-  font-size: 60px;
+  font-size: 50px;
+  padding-bottom: 0;
   line-height: 1;
   color: white;
   text-align: center;

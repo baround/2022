@@ -14,7 +14,7 @@ export default function IntroLocale({ data, coverImage, title }) {
   }, [])
   return (
     <div className={`${styles.intro} ${styles.intro__locale} ${!hasCover ? styles.noCover : styles.withCover}`}>
-      <div className={`${styles.background}`}>
+      <div className={`${styles.background} ${styles.intro__locale__background}`}>
         {hasCover ? (
           <Image
             priority
