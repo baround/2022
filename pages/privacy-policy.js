@@ -6,15 +6,18 @@ import { getSortedPostsData } from '../lib/query'
 import Meta from '../components/component/component-meta'
 import styles from './fullpage.module.scss'
 const categoryType = 'privacy-policy';
-const categorySlug = 'privacy-policy'; 
+const categorySlug = 'privacy-policy';
 const postTitle = 'Privacy Policy';
-const pageID = '3'; 
+const pageID = '3';
 export default function Post({ page, posts }) {
   return (
     <div className='baround'>
       <Head>
         <title>Baround {page.title.rendered ? ` - ${page.title.rendered}` : ''}</title>
-        <Meta data={page} postTitle={postTitle}/>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <Meta data={page} postTitle={postTitle} />
       </Head>
       <Header />
       <Page pageData={page} pageType={categorySlug} />
@@ -23,7 +26,7 @@ export default function Post({ page, posts }) {
   )
 }
 export async function getStaticProps() {
-  const page = await getSortedPostsData('pages/'+pageID)
+  const page = await getSortedPostsData('pages/' + pageID)
   const posts = await getSortedPostsData(categoryType + '?page=1&per_page=100')
   return {
     props: {

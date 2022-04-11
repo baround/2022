@@ -27,11 +27,14 @@ export default function Post({ postData, allPosts }) {
     <div className='baround'>
       <Head>
         <title>Baround {postTitle ? `- ${postTitle}` : ''} {postData.yoast_head_json.title ? ` - ${postData.yoast_head_json.title}` : ''}</title>
-        <Meta data={postData} postTitle={postTitle}/>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <Meta data={postData} postTitle={postTitle} />
       </Head>
       <Header />
       <Page pageData={postData} pageType={postType} />
-      <Share color='blue'/>
+      <Share color='blue' />
       <section className='morePost contentText'>
         <div className='morePost__wrap'>
           <div className='morePost__wrap__row'>
@@ -58,7 +61,7 @@ export default function Post({ postData, allPosts }) {
               (latestPosts.length > -1) ? (
                 latestPosts.map((block, index) => {
                   return (
-    
+
                     <SwiperSlide key={index}>
                       <Article block={block} classList={'post post__card'} baseLink={`/diario`} pageType='diario' />
                     </SwiperSlide>

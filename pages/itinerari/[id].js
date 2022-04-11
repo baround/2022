@@ -22,8 +22,8 @@ export default function Post({ postData, allPosts, locali }) {
   postList.splice(postIndex, 1);
   let latestPosts = [...postList].slice(0, 6);
 
-  let nearBar =  [];
-  if(  postData.acf.locali_vicini &&   postData.acf.locali_vicini.length > -1){
+  let nearBar = [];
+  if (postData.acf.locali_vicini && postData.acf.locali_vicini.length > -1) {
 
     postData.acf.locali_vicini.map((locale, index) => {
       nearBar.push(locale.ID);
@@ -34,11 +34,14 @@ export default function Post({ postData, allPosts, locali }) {
     <div className='baround'>
       <Head>
         <title>Baround {postTitle ? `- ${postTitle}` : ''} {postData.yoast_head_json.title ? ` - ${postData.yoast_head_json.title}` : ''}</title>
-        <Meta data={postData} postTitle={postTitle}/>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <Meta data={postData} postTitle={postTitle} />
       </Head>
       <Header />
       <Page pageData={postData} pageType={postType} />
-      <Share color='blue'/>
+      <Share color='blue' />
       <section className='morePost morePost--locali contentText'>
         <div className='morePost__wrap'>
           <div className='morePost__wrap__row'>
@@ -61,18 +64,18 @@ export default function Post({ postData, allPosts, locali }) {
               },
             }}
           >{
-            (resBar.length > -1) ? (
+              (resBar.length > -1) ? (
 
-              resBar.map((block, index) => {
-                return (
-  
-                  <SwiperSlide key={index}>
-                    <Article block={block} classList={'post post__card'} baseLink={`/locali`} pageType={'locali'} />
-                  </SwiperSlide>
-                )
-              })
-            ) : null
-          }
+                resBar.map((block, index) => {
+                  return (
+
+                    <SwiperSlide key={index}>
+                      <Article block={block} classList={'post post__card'} baseLink={`/locali`} pageType={'locali'} />
+                    </SwiperSlide>
+                  )
+                })
+              ) : null
+            }
 
           </Swiper>
         </div>
