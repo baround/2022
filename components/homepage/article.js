@@ -40,7 +40,6 @@ export default function Article(props) {
                 {(block.acf.fascia_di_prezzo == 'medio') ? (<span>€€</span>) : null}
                 {(block.acf.fascia_di_prezzo == 'basso') ? (<span>€</span>) : null}
               </div>
-              {/* <span className='type'>{block.acf.tipo.join(', ')}</span> */}
               <span className='type'>{Array.isArray(block.acf.tipo) ? block.acf.tipo.join(', ') : block.acf.tipo}</span>
               <span className='address'>{block.acf.indirizzo.address}</span>
             </>

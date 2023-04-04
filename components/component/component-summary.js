@@ -12,7 +12,7 @@ export default function Summary({ data }) {
         <ul>
           {data.acf.contenuto.map((block, index) => {
             if (block.acf_fc_layout == 'attivita') {
-              let slug = block.titolo.toLowerCase().split(' ').join('-')
+              let slug = Array.isArray(block.titolo.toLowerCase().split(' ')) ? block.titolo.toLowerCase().split(' ').join('-') : block.titolo.toLowerCase();
               return (
                 <li key={index}>
                   <Link href={`#${slug}`} scroll={false}>

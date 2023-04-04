@@ -17,7 +17,7 @@ export default function MapTest({ content, postData, setMapObject, pageType, map
       posts.acf.contenuto.map((block, index) => {
   
         if (block.acf_fc_layout == 'attivita') {
-          let slug = block.titolo.toLowerCase().split(' ').join('-');
+          let slug = Array.isArray(block.titolo.toLowerCase().split(' ')) ? block.titolo.toLowerCase().split(' ').join('-') : block.titolo.toLowerCase();
           let marketObj = {
             location: block.indirizzo,
             slug: `#${slug}`,
