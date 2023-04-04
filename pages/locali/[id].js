@@ -17,19 +17,12 @@ const postType = 'locali';
 const postTitle = 'Locale';
 
 export default function Post({ postData, allPosts, itinerari }) {
-  console.log('1');
-  console.log('postData', postData);
-  console.log('allPosts', allPosts);
   let postList = [...allPosts];
-  console.log('postList', postList);
   let thisPost = postData;
-  console.log('thisPost', thisPost);
   let postIndex = postList.findIndex(post => post.id == thisPost.id);
-  console.log('postIndex', postIndex);
   postList.splice(postIndex, 1);
 
   let nearItinerari = [];
-  console.log(postData.acf.itinerari_vicini)
   if (postData.acf.itinerari_vicini.length > 0) {
     postData.acf.itinerari_vicini.map((itinerario, index) => {
       nearItinerari.push(itinerario.ID);
