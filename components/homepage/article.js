@@ -45,22 +45,17 @@ export default function Article(props) {
             </>
           ) : ''
         }
-        {
-          (block.acf.contenuto.length) ? (
-
-            block.acf.contenuto.map((content, index) => {
-              if (props.pageType == 'locali') {
-                return
-              } else {
-                if (content.acf_fc_layout == 'introduzione') {
-                  return (
-                    <div className={`${'post__content__text'} post__content__text`} dangerouslySetInnerHTML={{ __html: content.contenuto }} key={index}></div>
-                  )
-                }
-              }
-            })
-          ) : null
-        }
+        {block.acf.contenuto.map((content, index) => {
+          if (props.pageType == 'locali') {
+            return
+          } else {
+            if (content.acf_fc_layout == 'introduzione') {
+              return (
+                <div className={`${'post__content__text'} post__content__text`} dangerouslySetInnerHTML={{ __html: content.contenuto }} key={index}></div>
+              )
+            }
+          }
+        })}
         {putCta ? (
           <span className={`cta_readMore`}>
             <Link href={props.baseLink + '/' + block.slug}>

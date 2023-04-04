@@ -13,6 +13,8 @@ export default function Navigation({ classList }){
         layout="fill"
         placeholder="blur"
         blurDataURL={rgbDataURL(0, 0, 0)}
+        height={742}
+        width={1060}
         alt='baround'
         objectFit="cover"
       />

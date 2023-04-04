@@ -7,12 +7,6 @@ export default function List({ data, counter }) {
   function toggle(){
     setShowMe(!showMe);
   }
-  data.sort(function(a, b){
-      if(a.slug < b.slug) { return -1; }
-      if(a.slug > b.slug) { return 1; }
-      return 0;
-  })
-  let number = data.length - 1;
   return (
     <div className={`${styles.list}`}>
       <span className={`${styles.list__showList} ${showMe?styles.inactive:styles.active}`} onClick={toggle}></span>
@@ -20,7 +14,7 @@ export default function List({ data, counter }) {
         <span className={`${styles.list__close}`} onClick={toggle}></span>
         <div className={`${styles.list__listing__header}`}>
           <div className={`${styles.list__listing__header__counter}`}>
-            {number} bar a Milano
+            48 bar a Milano
           </div>
           <h1>Ecco i bar che fanno per te!</h1>
         <span className={`${styles.list__showMap}`} onClick={toggle}>Scoprili sulla mappa</span>
@@ -44,7 +38,7 @@ export default function List({ data, counter }) {
                     {(block.acf.fascia_di_prezzo == 'basso') ? (<span>€</span>) : null}
                   </div>
                   {/* <span className={`${styles.list__listing__content__row__text__type}`}>{block.acf.tipo.join(', ')}</span> */}
-                  <span className={`${styles.list__listing__content__row__text__type}`}>{(block.acf.tipo.length > 0) ? block.acf.tipo.join(', ') : block.acf.tipo }</span>
+                  <span className={`${styles.list__listing__content__row__text__type}`}>{block.acf.tipo}</span>
                   <span  className={`${styles.list__listing__content__row__text__address}`}>{block.acf.indirizzo.address}</span>
                 </div>
               </div>
@@ -54,4 +48,4 @@ export default function List({ data, counter }) {
       </div>
     </div>
   )
-}
+} 

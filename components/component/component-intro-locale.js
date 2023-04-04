@@ -14,7 +14,7 @@ export default function IntroLocale({ data, coverImage, title }) {
   }, [])
   return (
     <div className={`${styles.intro} ${styles.intro__locale} ${!hasCover ? styles.noCover : styles.withCover}`}>
-      <div className={`${styles.background} ${styles.intro__locale__background}`}>
+      <div className={`${styles.background}`}>
         {hasCover ? (
           <Image
             priority
@@ -39,7 +39,7 @@ export default function IntroLocale({ data, coverImage, title }) {
                 {(data.acf.fascia_di_prezzo == 'medio') ? (<span>€€</span>) : null}
                 {(data.acf.fascia_di_prezzo == 'basso') ? (<span>€</span>) : null}
               </div>
-              <span className={styles.type}>{(data.acf.tipo.length > 1) ? data.acf.tipo.join(', ') : data.acf.tipo }</span>
+              <span className={styles.type}>{data.acf.tipo.join(', ')}</span>
               <span className={styles.address}>{data.acf.indirizzo.address}</span>
             </div>
             {hasCover ? (

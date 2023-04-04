@@ -29,7 +29,6 @@
             border-bottom: 5px solid #1f2833;
             @media (max-width: 991px){
                 padding: 20px 0 10px 0;
-                margin-bottom: 10px;
             } 
             a{
                 font-size: 14px;
@@ -65,7 +64,6 @@
             line-height: normal;
             letter-spacing: 1.09px;
             color: #212832;
-            margin-bottom: 0;
             @media (max-width: 991px){
                 font-size: 16px;
                 letter-spacing: 0.8px;
@@ -87,7 +85,6 @@
             @media (max-width: 991px){
                 flex-flow: column;
                 justify-content: center;
-                flex-flow: column-reverse;
             }
         }
     }
@@ -102,9 +99,6 @@
         }
         &_list{
             overflow: hidden;
-        @media (max-width: 991px){
-            margin-top: 30px;
-        }
         }
         &_pinned{
             display: flex;
@@ -125,10 +119,6 @@
                 letter-spacing: 3px;
                 color: #222831;
                 text-transform: uppercase;
-
-                @media (max-width: 991px){
-                    margin-bottom: 0;
-                }
             }
         }
     }

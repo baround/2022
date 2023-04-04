@@ -18,7 +18,7 @@ export const Whatsapp = (props) => (
 )
 export default function Share({ color }){
   const router = useRouter();
-  const thisUrl = `https://baround.it${router.asPath}`;
+  const thisUrl = `https://www.baround.it${router.asPath}`;
   return (
     <section className={`${styles.share} share share--${color}`}>
       <div className={`${styles.share__wrapper}`}>
