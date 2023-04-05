@@ -8,6 +8,8 @@ import List from '../../components/component/component-list';
 import Filters from '../../components/component/component-filters';
 import styles from '../locali.module.scss'
 import MapTest from '../../components/component/component-map-test';
+import Meta from '../../components/component/component-meta'
+
 const categoryType = 'locali';
 const categorySlug = 'locali';
 const postTitle = 'Locali';
@@ -16,7 +18,11 @@ export default function Post({ posts }) {
   return (
     <div className='baround'>
       <Head>
-        <title>Baround - {postTitle}</title>
+        <title>Baround - Locali</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <Meta data={''} postTitle={postTitle} />
       </Head>
       <Header />
       <div className={styles.locali}>
@@ -26,7 +32,7 @@ export default function Post({ posts }) {
       <Footer />
     </div>
   )
-} 
+}
 export async function getStaticProps() {
   const posts = await getSortedPostsData(categoryType + '?page=1&per_page=100')
   return {

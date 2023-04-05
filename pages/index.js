@@ -6,44 +6,45 @@ import Locali from '../components/homepage/locali'
 import Itinerari from '../components/homepage/itinerari'
 import Footer from '../components/footer'
 import { getSortedPostsData } from '../lib/query'
+import Meta from '../components/component/component-meta'
 
-export default function Home({home, locali, itinerari, posts, bestPost}) {
+export default function Home({ home, locali, itinerari, posts, bestPost }) {
   return (
     <div className='baround'>
       <Head>
         <title>Baround</title>
-        {/* <script
-            src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyDipxxdu6s5Te5oRe0Ll9szmqxfdFLN6jA&callback=initMap&libraries=&v=weekly`}
-            async
-          ></script> */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <Meta data={''} postTitle='' />
       </Head>
       <Header />
       <>
         {home.acf.homepage.map((block, index) => {
-          if(block.acf_fc_layout == 'hero'){
+          if (block.acf_fc_layout == 'hero') {
             return (
               <Hero content={block} key={index} />
             )
-          } else if(block.acf_fc_layout == 'diario'){
-            return(
+          } else if (block.acf_fc_layout == 'diario') {
+            return (
               <Diario content={block} postData={posts} pinned={bestPost} key={index} />
             )
-          } else if(block.acf_fc_layout == 'locali'){
-            return(
-              <Locali content={block} postData={locali} key={index}/>
+          } else if (block.acf_fc_layout == 'locali') {
+            return (
+              <Locali content={block} postData={locali} key={index} />
             )
-          } else if(block.acf_fc_layout == 'itinerari'){
-            return(
+          } else if (block.acf_fc_layout == 'itinerari') {
+            return (
               <Itinerari content={block} postData={itinerari} key={index} />
             )
-          }               
+          }
         })}
       </>
       <Footer />
     </div>
   )
 }
-export async function getStaticProps(){
+export async function getStaticProps() {
   const home = await getSortedPostsData('pages/658')
   const locali = await getSortedPostsData('locali?page=1&per_page=100')
   const itinerari = await getSortedPostsData('itinerari?page=1&per_page=4')
