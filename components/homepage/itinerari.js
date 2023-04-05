@@ -49,9 +49,6 @@ export default function Itinerari({ content, postData }){
                 slidesPerView: 4,
               },
             }}
-            // loop={true}
-            // onSlideChange={() => console.log('slide change')}
-            // onSwiper={(swiper) => console.log(swiper)}
           >
             {postData.map((block, index) => {
                 return (

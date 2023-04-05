@@ -40,22 +40,27 @@ export default function Article(props) {
                 {(block.acf.fascia_di_prezzo == 'medio') ? (<span>€€</span>) : null}
                 {(block.acf.fascia_di_prezzo == 'basso') ? (<span>€</span>) : null}
               </div>
-              <span className='type'>{Array.isArray(block.acf.tipo) ? block.acf.tipo.join(', ') : block.acf.tipo}</span>
+              <span className='type'>{block.acf.tipo.join(', ')}</span>
               <span className='address'>{block.acf.indirizzo.address}</span>
             </>
           ) : ''
         }
-        {block.acf.contenuto.map((content, index) => {
-          if (props.pageType == 'locali') {
-            return
-          } else {
-            if (content.acf_fc_layout == 'introduzione') {
-              return (
-                <div className={`${'post__content__text'} post__content__text`} dangerouslySetInnerHTML={{ __html: content.contenuto }} key={index}></div>
-              )
-            }
-          }
-        })}
+        {
+          (block.acf.contenuto.length) ? (
+
+            block.acf.contenuto.map((content, index) => {
+              if (props.pageType == 'locali') {
+                return
+              } else {
+                if (content.acf_fc_layout == 'introduzione') {
+                  return (
+                    <div className={`${'post__content__text'} post__content__text`} dangerouslySetInnerHTML={{ __html: content.contenuto }} key={index}></div>
+                  )
+                }
+              }
+            })
+          ) : null
+        }
         {putCta ? (
           <span className={`cta_readMore`}>
             <Link href={props.baseLink + '/' + block.slug}>

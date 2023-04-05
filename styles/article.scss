@@ -90,6 +90,9 @@
         color: #222831;
         --lh: 1.5em;
         line-height: var(--lh);
+        strong{
+          font-weight: normal;
+        }
       }
     }
   }
@@ -255,10 +258,10 @@
         padding-right: 25% !important;
       }
       .swiper-wrapper {
-        @media (min-width: 640px) {
-          display: flex;
-          // justify-content: center; 
-        }
+        // @media (min-width: 640px) {
+        //   display: flex;
+        //   justify-content: center;
+        // }
       }
     }
     .swiper-horizontal > .swiper-pagination-bullets,

@@ -4,28 +4,28 @@ import styles from './component-map.module.scss'
 import PropTypes from 'prop-types';
 
 export default function Map({ content, postData, setMapObject, pageType, mapObject }) {
-  // console.log(postData);
   const [pinners, setAllPinner] = useState(postData);
   const googlemap = useRef(null);
   useEffect(() => {
     var allItems = [];
     if (pageType == 'itinerari') {
-      postData.acf.contenuto.map((block, index) => {
+      if (postData.acf.contenuto.length > -1) {
+        postData.acf.contenuto.map((block, index) => {
 
-        if (block.acf_fc_layout == 'attivita') {
-          let slug = Array.isArray(block.titolo.toLowerCase().split(' ')) ? block.titolo.toLowerCase().split(' ').join('-') : block.titolo.toLowerCase();
-          let marketObj = {
-            location: block.indirizzo,
-            slug: `#${slug}`,
-            image: block.immagine,
-            price: false,
-            title: block.titolo
+          if (block.acf_fc_layout == 'attivita') {
+            let slug = block.titolo.toLowerCase().split(' ').join('-');
+            let marketObj = {
+              location: block.indirizzo,
+              slug: `#${slug}`,
+              image: block.immagine,
+              price: false,
+              title: block.titolo
+            }
+            allItems.push(marketObj);
           }
-          allItems.push(marketObj);
-        }
-      })
+        })
+      }
     } else if (pageType == 'locale') {
-
       let marketObj = {
         location: postData.acf.indirizzo,
         slug: `/locali/${postData.slug}`,
@@ -35,16 +35,19 @@ export default function Map({ content, postData, setMapObject, pageType, mapObje
       }
       allItems.push(marketObj);
     } else {
-      postData.map((block, index) => {
-        let marketObj = {
-          location: block.acf.indirizzo,
-          slug: `/locali/${block.slug}`,
-          image: block.acf.immagine_di_copertina,
-          price: block.acf.fascia_di_prezzo,
-          title: block.title.rendered
-        }
-        allItems.push(marketObj);
-      })
+      if (postData.length > -1) {
+
+        postData.map((block, index) => {
+          let marketObj = {
+            location: block.acf.indirizzo,
+            slug: `/locali/${block.slug}`,
+            image: block.acf.immagine_di_copertina,
+            price: block.acf.fascia_di_prezzo,
+            title: block.title.rendered
+          }
+          allItems.push(marketObj);
+        })
+      }
     }
     const loader = new Loader({
       apiKey: 'AIzaSyDipxxdu6s5Te5oRe0Ll9szmqxfdFLN6jA',

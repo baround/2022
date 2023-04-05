@@ -113,6 +113,10 @@
   line-height: var(--lh);
 }
 
+.post__content__text p strong {
+  font-weight: normal;
+}
+
 .post__pinned {
   display: flex;
   flex-flow: column;
@@ -318,12 +322,6 @@
 @media (max-width: 639px) {
   .morePost__wrap .swiper {
     padding-right: 25% !important;
-  }
-}
-
-@media (min-width: 640px) {
-  .morePost__wrap .swiper .swiper-wrapper {
-    display: flex;
   }
 }
 
