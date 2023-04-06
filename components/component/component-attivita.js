@@ -1,7 +1,7 @@
 import styles from './component-content.module.scss'
 
 export default function Attivita({ data }) {
-  var slug = data.titolo.toLowerCase().split(' ').join('-');
+  var slug = Array.isArray(data.titolo.toLowerCase().split(' ')) ? data.titolo.toLowerCase().split(' ').join('-') : data.titolo.toLowerCase();
   return (
     <div className={`${styles.content}`}>
       <span id={slug} className="scrollTrigger"></span>
