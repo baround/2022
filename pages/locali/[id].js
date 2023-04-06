@@ -22,14 +22,30 @@ export default function Post({ postData, allPosts, itinerari }) {
   let thisPost = postData;
   let postIndex = postList.findIndex(post => post.id == thisPost.id);
   postList.splice(postIndex, 1);
-  let latestPosts = [...postList].slice(0, 6);
-  let nearBar = [];
-  if (postData.acf.itinerari_vicini && postData.acf.itinerari_vicini.length > -1) {
+  // let latestPosts = [...postList].slice(0, 6);
+  // let nearBar = [];
+  // if (postData.acf.itinerari_vicini && postData.acf.itinerari_vicini.length > -1) {
+  //   postData.acf.itinerari_vicini.map((itinerario, index) => {
+  //     nearBar.push(itinerario.ID);
+  //   })
+  // }
+  // let resBar = itinerari.filter(item => nearBar.includes(item.id));
+  let nearItinerari = [];
+  if (postData.acf.itinerari_vicini.length > 0) {
     postData.acf.itinerari_vicini.map((itinerario, index) => {
-      nearBar.push(itinerario.ID);
+      nearItinerari.push(itinerario.ID);
     })
   }
-  let resBar = itinerari.filter(item => nearBar.includes(item.id));
+
+  let itinerariVicini = itinerari.filter(item => nearItinerari.includes(item.id));
+  let nearBar = [];
+
+  if (postData.acf.locali_simili.length > 0) {
+    postData.acf.locali_simili.map((bar, index) => {
+      nearBar.push(bar.ID);
+    })
+  }
+  let barVicini = allPosts.filter(item => nearBar.includes(item.id));
   const [mapObject, setMapObject] = useState(null);
 
   return (
@@ -47,83 +63,83 @@ export default function Post({ postData, allPosts, itinerari }) {
       <Map setMapObject={setMapObject} postData={postData} pageType={'locale'} />
 
       <Share color='blue' />
-      <section className='morePost morePost--locali contentText'>
-        <div className='morePost__wrap'>
-          <div className='morePost__wrap__row'>
-            <h3>Bar simili a questo</h3>
-          </div>
-          <Swiper
-            modules={[Pagination]}
-            spaceBetween={24}
-            slidesPerView={1}
-            pagination={{ clickable: true }}
-            breakpoints={{
-              640: {
-                slidesPerView: 2,
-              },
-              768: {
-                slidesPerView: 3,
-              },
-              920: {
-                slidesPerView: 4,
-              },
-            }}
-          >
-            {
-              (latestPosts.length > -1) ? (
-                latestPosts.map((block, index) => {
+      {
+        nearBar.length > 0 ? (
+          <section className='morePost morePost--locali contentText'>
+            <div className='morePost__wrap'>
+              <div className='morePost__wrap__row'>
+                <h3>Bar simili a questo</h3>
+              </div>
+              <Swiper
+                modules={[Pagination]}
+                spaceBetween={24}
+                slidesPerView={1}
+                pagination={{ clickable: true }}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 2,
+                  },
+                  768: {
+                    slidesPerView: 3,
+                  },
+                  920: {
+                    slidesPerView: 4,
+                  },
+                }}
+              >
+                {barVicini.map((block, index) => {
                   return (
 
                     <SwiperSlide key={index}>
                       <Article block={block} classList={'post post__card'} baseLink={`/${postType}`} pageType={postType} />
                     </SwiperSlide>
                   )
-                })
-              ) : null
-            }
+                })}
 
-          </Swiper>
-        </div>
-      </section>
-      <section className='morePost morePost--itinerari contentText'>
-        <div className='morePost__wrap'>
-          <div className='morePost__wrap__row'>
-            <h3>Itinerari nelle vicinanze</h3>
-          </div>
-          <Swiper
-            modules={[Pagination]}
-            spaceBetween={24}
-            slidesPerView={1}
-            pagination={{ clickable: true }}
-            breakpoints={{
-              640: {
-                slidesPerView: 2,
-              },
-              768: {
-                slidesPerView: 3,
-              },
-              920: {
-                slidesPerView: 4,
-              },
-            }}
-          >
-            {
-              (resBar.length > -1) ? (
+              </Swiper>
+            </div>
+          </section>
+        ) : ''
+      }
+      {
+        nearItinerari.length > 0 ? (
 
-                resBar.map((block, index) => {
+          <section className='morePost morePost--itinerari contentText'>
+            <div className='morePost__wrap'>
+              <div className='morePost__wrap__row'>
+                <h3>Itinerari nelle vicinanze</h3>
+              </div>
+              <Swiper
+                modules={[Pagination]}
+                spaceBetween={24}
+                slidesPerView={1}
+                pagination={{ clickable: true }}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 2,
+                  },
+                  768: {
+                    slidesPerView: 3,
+                  },
+                  920: {
+                    slidesPerView: 4,
+                  },
+                }}
+              >
+                {itinerariVicini.map((block, index) => {
                   return (
 
                     <SwiperSlide key={index}>
                       <Article block={block} classList={'post post__card'} baseLink={`/itinerari`} pageType={'itinerari'} />
                     </SwiperSlide>
                   )
-                })
-              ) : null
-            }
+                })}
 
-          </Swiper>
-        </div>
-      </section>
+              </Swiper>
+            </div>
+          </section>
+        ) : ''
+      }
       <Footer />
     </div>
   )

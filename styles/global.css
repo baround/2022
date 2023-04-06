@@ -343,3 +343,17 @@ ol li {
     height: calc(100vh - 100px);
   }
 }
+
+.swiper-button-next, .swiper-button-prev {
+  background: #222831 !important;
+  border-radius: 100% !important;
+  width: 40px !important;
+  height: 40px !important;
+  font-size: 12px !important;
+  color: white !important;
+  border: 2px solid white !important;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-size: 20px !important;
+}
